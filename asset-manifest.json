@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/rodrigopscampos/chess-game/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/rodrigopscampos/chess-game/static/js/main.01cdefec.chunk.js",
-    "main.js.map": "/rodrigopscampos/chess-game/static/js/main.01cdefec.chunk.js.map",
-    "runtime-main.js": "/rodrigopscampos/chess-game/static/js/runtime-main.0bb31b83.js",
-    "runtime-main.js.map": "/rodrigopscampos/chess-game/static/js/runtime-main.0bb31b83.js.map",
-    "static/js/2.82fb003f.chunk.js": "/rodrigopscampos/chess-game/static/js/2.82fb003f.chunk.js",
-    "static/js/2.82fb003f.chunk.js.map": "/rodrigopscampos/chess-game/static/js/2.82fb003f.chunk.js.map",
-    "static/js/3.5822ac88.chunk.js": "/rodrigopscampos/chess-game/static/js/3.5822ac88.chunk.js",
-    "static/js/3.5822ac88.chunk.js.map": "/rodrigopscampos/chess-game/static/js/3.5822ac88.chunk.js.map",
-    "index.html": "/rodrigopscampos/chess-game/index.html",
-    "static/css/main.ab7136cd.chunk.css.map": "/rodrigopscampos/chess-game/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.82fb003f.chunk.js.LICENSE.txt": "/rodrigopscampos/chess-game/static/js/2.82fb003f.chunk.js.LICENSE.txt"
+    "main.css": "/chess-game/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/chess-game/static/js/main.01cdefec.chunk.js",
+    "main.js.map": "/chess-game/static/js/main.01cdefec.chunk.js.map",
+    "runtime-main.js": "/chess-game/static/js/runtime-main.ff0cc48b.js",
+    "runtime-main.js.map": "/chess-game/static/js/runtime-main.ff0cc48b.js.map",
+    "static/js/2.82fb003f.chunk.js": "/chess-game/static/js/2.82fb003f.chunk.js",
+    "static/js/2.82fb003f.chunk.js.map": "/chess-game/static/js/2.82fb003f.chunk.js.map",
+    "static/js/3.5822ac88.chunk.js": "/chess-game/static/js/3.5822ac88.chunk.js",
+    "static/js/3.5822ac88.chunk.js.map": "/chess-game/static/js/3.5822ac88.chunk.js.map",
+    "index.html": "/chess-game/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/chess-game/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.82fb003f.chunk.js.LICENSE.txt": "/chess-game/static/js/2.82fb003f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0bb31b83.js",
+    "static/js/runtime-main.ff0cc48b.js",
     "static/js/2.82fb003f.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
     "static/js/main.01cdefec.chunk.js"
