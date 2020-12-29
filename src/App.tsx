@@ -4,18 +4,6 @@ import Chessboard from "chessboardjsx";
 import { ChessInstance, ShortMove } from "chess.js";
 const Chess = require("chess.js");
 
-class HistItem {
-  fen: string = "";
-  move: string = "";
-  player: string = "";
-
-  constructor(fen: string, move: string, player: string) {
-    this.fen = fen;
-    this.move = move;
-    this.player = player;
-  }
-};
-
 const startFenPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 const App: React.FC = () => {
 
@@ -23,16 +11,15 @@ const App: React.FC = () => {
     new Chess(startFenPosition)
   );
 
-  const [hist, setHist] = useState<HistItem[]>([]);
+  const [hist, setHist] = useState<any[]>([]);
 
   const [fen, setFen] = useState(chess.fen());
 
   const runCPUMove = (moves: string[]) => {
     const computerMove = moves[Math.floor(Math.random() * moves.length)];
     chess.move(computerMove);
-    hist.push(new HistItem(chess.fen(), computerMove, "CPU"));
     setFen(chess.fen());
-    setHist(hist);
+    setHist(chess.history({ verbose: true }));
   }
 
   const restartGame = () => {
@@ -42,36 +29,31 @@ const App: React.FC = () => {
   }
 
   const undoLastMove = () => {
-    let position = hist.length - 3;
-    if (position < 0) {
-      restartGame();
-    }
-    else {
-      let last = hist[position].fen;
-      if (last !== undefined) {
-        if (chess.load(last)) {
-          let newHist = hist.slice(0, position + 1);
-          setHist(newHist);
-          setFen(last);
-        }
-      }
-    }
+    chess.undo()
+    chess.undo()
+    setFen(chess.fen())
+    setHist(chess.history({ verbose: true }));
+    return;
   }
 
   const handleMove = (move: ShortMove) => {
-    if (chess.move(move)) {
-      setTimeout(() => {
-        const moves = chess.moves();
+    if (!chess.move(move))
+      return;
 
-        if (moves.length > 0)
-          runCPUMove(moves);
+    setFen(chess.fen());
+    setHist(chess.history({ verbose: true }));
 
-      }, 1);
+    if (chess.in_checkmate()) alert('Cheque-Mate');
+    else if (chess.in_check()) alert('Cheque');
+    else if (chess.in_draw()) alert('Empate');
+    else if (chess.in_stalemate()) alert('Empate por jogo travado');
+    else if (chess.in_threefold_repetition()) alert('Empate por repetição')
 
-      setFen(chess.fen());
-      hist.push(new HistItem(chess.fen(), move.to, "PL1"));
-      setHist(hist);
-    }
+    setTimeout(() => {
+      const moves = chess.moves();
+      if (moves.length > 0)
+        runCPUMove(moves);
+    }, 1);
   };
 
   const renderHist = () => {
@@ -79,7 +61,7 @@ const App: React.FC = () => {
       <div>
         <span>Hist. Jogadas</span>
         {
-          hist.map((item, index) => <li key={index}>{index} - {item.player} - {item.move}</li>)
+          hist.map((item, index) => <li key={index}>{index} - {item.color == 'w' ? "PL1" : "CPU"}  -{item.piece}{item.to}</li>)
         }
       </div>
     )
